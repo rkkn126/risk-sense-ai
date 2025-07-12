@@ -1,0 +1,18 @@
+run = "cd rs_ai && python run.py"
+modules = ["python-3.11:v1-20240424-c405886"]
+
+hidden = [".pythonlibs"]
+
+[nix]
+channel = "stable-23_11"
+
+[unitTest]
+language = "python3"
+
+[deployment]
+run = ["sh", "-c", "cd rs_ai && python run.py"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 5001
+externalPort = 80
